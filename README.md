@@ -26,10 +26,9 @@ Things you may want to cover:
 ## Specification:
 
 - It should output a CSV file in the correct format as specified by Napsa.
-- Sample employee data can initially be hard coded
+- Sample employee data can initially be hard coded.
 - The employee data should be kept private, and not hard coded. 
 - It should handle one employee to begin with.
 - It should handle more than one employee.
-- 
 
 ## User stories 

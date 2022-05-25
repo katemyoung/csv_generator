@@ -3,7 +3,7 @@ class CSVFileMaker
 
   def generate_file
     CSV.open("file.csv", "w") do |csv|
-      csv << []
+      csv << ["moo"]
     end
   end
 end
