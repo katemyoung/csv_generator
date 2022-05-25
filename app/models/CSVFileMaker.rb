@@ -1,9 +1,9 @@
 class CSVFileMaker
   require "csv"
 
-  def generate_file
-    CSV.open("./public/csv_files/file.csv", "w") do |csv|
-      csv << ["moo"]
+  def generate_file(file_path)
+    CSV.open("#{file_path}", "w") do |csv|
+      csv << []
     end
   end
 end
