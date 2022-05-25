@@ -7,7 +7,11 @@ describe CSVFileMaker do
   let(:file) { csv_maker.generate_file(file_path) }
   let(:csv_data) { csv_maker.generate_csv_data }
 
-  it { is_expected.to respond_to(:generate_csv_data) }
+  describe "#generate_csv_data" do
+    it "returns an array" do
+      expect(csv_data).to be_an(Array)
+    end
+  end
 
   describe "#generate_file" do
     after(:context) { File.delete("./tmp/test.csv") }
