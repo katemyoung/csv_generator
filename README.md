@@ -30,5 +30,6 @@ Things you may want to cover:
 - The employee data should be kept private, and not hard coded. 
 - It should handle one employee to begin with.
 - It should handle more than one employee.
+- Each generated file should have a unique, meaningful name
 
 ## User stories 
