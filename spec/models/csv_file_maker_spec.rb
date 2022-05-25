@@ -8,8 +8,14 @@ describe CSVFileMaker do
   let(:csv_data) { csv_maker.generate_csv_data }
 
   describe "#generate_csv_data" do
+    let(:account_number) { "1234567" }
+
     it "returns an array" do
       expect(csv_data).to be_an(Array)
+    end
+
+    it "contains the employer's account number" do
+      expect(csv_data).to include(account_number) 
     end
   end
 
@@ -25,7 +31,7 @@ describe CSVFileMaker do
     end
  
     it "outputs a csv data contains the employer's account number" do
-      expect(CSV.read("#{file_path}")).to include(["1234567"]) 
+      expect(CSV.read("#{file_path}")).to include(csv_data) 
     end
   end
 end
