@@ -2,7 +2,7 @@ class CSVFileMaker
   require "csv"
 
   def generate_csv_data
-    ["1234567"]
+    ["1234567", "2022"]
   end
 
   def generate_file(file_path)
