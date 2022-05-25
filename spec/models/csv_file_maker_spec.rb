@@ -6,7 +6,7 @@ describe CSVFileMaker do
     after(:context) { File.delete("./tmp/test.csv") }
     let(:csv_maker) { CSVFileMaker.new }
     let(:file_path) { "./tmp/test.csv"}
-  
+    
     it "outputs a csv file" do
       expect(csv_maker.generate_file(file_path)).to be_a(CSV)
     end
