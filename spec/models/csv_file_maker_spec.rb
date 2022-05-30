@@ -7,6 +7,12 @@ describe CsvFileMaker do
   let(:file) { csv_maker.generate_file(file_path) }
   let(:csv_data) { csv_maker.generate_csv_data }
 
+  describe "#select_account_number" do
+    it "returns the employer's account number" do
+      expect(csv_maker).to respond_to(:select_account_number)
+    end
+  end
+
   describe "#generate_csv_data" do
     
     let(:year) { "2022" }
