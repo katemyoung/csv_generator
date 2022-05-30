@@ -45,3 +45,17 @@ Account Number 	Year 	Month(Period) 	Social Security Number(SSN) 	National ID(NR
 I'm going to use the sample data on the eNapsa website.
 SAMPLE DATA
 1234567,2016,06,123456789,123456/78/9,Banda,Mary,Chungu,23/03/1980,2500.00,125.00,125.00  
+
+## How to run this programme
+
+So far, it creates a csv file with the employer name generated dynamically, and the date hard-coded.
+
+```
+3.0.0 :001 > Employer.create(name: "Small Shop", account_number: 123123)
+3.0.0 :002 > june_returns = CsvFileMaker.new("Small Shop")
+3.0.0 :003 > june_returns.generate_file("./june_returns.csv")
+```
+
+A csv file should have been generated in your app directory (or wherever you specified in the filepath).
+
+This is what the above csv file contains: 123123,2022
