@@ -2,15 +2,23 @@ require "rails_helper"
 require "csv"
 
 describe CsvFileMaker do
-  let(:csv_maker) { CsvFileMaker.new }
+  let(:csv_maker) { CsvFileMaker.new("My Company") }
   let(:file_path) { "./tmp/test.csv"}
   let(:file) { csv_maker.generate_file(file_path) }
   let(:csv_data) { csv_maker.generate_csv_data }
 
-  describe "#select_account_number" do
+  describe "a new CsvFileMaker" do
+    it "is assocaited with an employer account " do
+    expect(csv_maker.employer_name).to eq("My Company")
+    # when a CsvFileMaker object is created,
+      # you need to specify an employer account number
+    end
+  end
+
+  describe "#employer_account_number" do
     it "returns the employer's account number" do
       employer = double(account_number: "1234567")
-      expect(csv_maker.select_account_number).to eq("1234567")
+      expect(csv_maker.employer_account_number).to eq("1234567")
     end
   end
 
