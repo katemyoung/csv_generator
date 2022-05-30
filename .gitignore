@@ -36,4 +36,5 @@
 
 # Ignore SimpleCov code coverage
 /coverage/*
+/coverage
 coverage
