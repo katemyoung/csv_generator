@@ -1,46 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/katemyoung/Projects/eNapsa/spec/models/csv_file_maker_spec.rb": {
+      "/Users/katemyoung/Projects/eNapsa/spec/models/employer_spec.rb": {
         "lines": [
           1,
-          1,
-          null,
-          1,
-          7,
-          3,
-          2,
-          5,
-          null,
-          1,
-          2,
-          2,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
           null,
           1,
           2,
           null,
           1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
           1,
           1,
           null,
@@ -332,24 +300,13 @@
           null
         ]
       },
-      "/Users/katemyoung/Projects/eNapsa/app/models/CSVFileMaker.rb": {
+      "/Users/katemyoung/Projects/eNapsa/app/models/employer.rb": {
         "lines": [
           1,
-          1,
-          null,
-          1,
-          5,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
           null
         ]
       }
     },
-    "timestamp": 1653512575
+    "timestamp": 1653901663
   }
 }

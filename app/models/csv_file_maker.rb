@@ -1,4 +1,4 @@
-class CSVFileMaker
+class CsvFileMaker
   require "csv"
 
   def generate_csv_data

@@ -1,8 +1,8 @@
 require "rails_helper"
 require "csv"
 
-describe CSVFileMaker do
-  let(:csv_maker) { CSVFileMaker.new }
+describe CsvFileMaker do
+  let(:csv_maker) { CsvFileMaker.new }
   let(:file_path) { "./tmp/test.csv"}
   let(:file) { csv_maker.generate_file(file_path) }
   let(:csv_data) { csv_maker.generate_csv_data }
