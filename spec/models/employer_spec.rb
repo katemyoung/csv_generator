@@ -1,7 +1,8 @@
 require "rails_helper"
 
 describe Employer do
-  let(:employer) { Employer.new }
+  let(:account_number) { "123456"}
+  let(:employer) { Employer.new(account_number) }
 
   describe "initialisation" do
     it "has an account number" do
