@@ -1,13 +1,10 @@
 class CsvFileMaker
   require "csv"
-  attr_accessor :employer_name
+  attr_accessor :employer_name, :employer_account_number
   
   def initialize(employer_name)
     @employer_name = employer_name
-  end
-
-  def employer_account_number
-    "1234567"
+    @employer_account_number = "1234567"
   end
 
   def generate_csv_data

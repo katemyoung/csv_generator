@@ -6,12 +6,17 @@ describe CsvFileMaker do
   let(:file_path) { "./tmp/test.csv"}
   let(:file) { csv_maker.generate_file(file_path) }
   let(:csv_data) { csv_maker.generate_csv_data }
+  let(:employer) { double(employer_name: "My Company", account_number: "1234567") }
 
   describe "a new CsvFileMaker" do
     it "is assocaited with an employer account " do
-    expect(csv_maker.employer_name).to eq("My Company")
-    # when a CsvFileMaker object is created,
-      # you need to specify an employer account number
+      employer = double(name: "My Company", account_number: "1234567")
+      expect(csv_maker.employer_name).to eq(employer.name)
+    end
+
+    it "finds the accociated employee acount number" do
+      employer = double(name: "My Company", account_number: "1234567")
+      expect(csv_maker.employer_account_number).to eq(employer.account_number)
     end
   end
 
