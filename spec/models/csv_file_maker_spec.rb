@@ -8,7 +8,7 @@ describe CsvFileMaker do
   let(:csv_data) { csv_maker.generate_csv_data }
 
   describe "#generate_csv_data" do
-    let(:account_number) { "1234567" }
+    
     let(:year) { "2022" }
 
     it "returns an array" do
@@ -16,7 +16,8 @@ describe CsvFileMaker do
     end
 
     it "contains the employer's account number" do
-      expect(csv_data).to include(account_number) 
+      employer = double(account_number: "1234567")
+      expect(csv_data).to include(employer.account_number) 
     end
 
     it "contains the year" do
