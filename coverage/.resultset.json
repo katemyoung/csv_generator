@@ -303,10 +303,13 @@
       "/Users/katemyoung/Projects/eNapsa/app/models/employer.rb": {
         "lines": [
           1,
+          null,
+          1,
+          null,
           null
         ]
       }
     },
-    "timestamp": 1653901663
+    "timestamp": 1653901762
   }
 }
