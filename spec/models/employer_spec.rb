@@ -3,7 +3,7 @@ require "rails_helper"
 describe Employer do
   let(:account_number) { "123456"}
   let(:name) { "My Company" }
-  let(:employer) { Employer.new(account_number, name) }
+  let(:employer) { Employer.create(account_number: account_number, name: name) }
 
   describe "initialisation" do
     it "has an account number" do

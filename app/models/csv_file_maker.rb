@@ -4,7 +4,7 @@ class CsvFileMaker
   
   def initialize(employer_name)
     @employer_name = employer_name
-    @employer_account_number = "1234567"
+    @employer_account_number = "1234567" # get this using Employer.find_by(name: employer_name)
   end
 
   def generate_csv_data
