@@ -9,7 +9,8 @@ describe CsvFileMaker do
 
   describe "#select_account_number" do
     it "returns the employer's account number" do
-      expect(csv_maker).to respond_to(:select_account_number)
+      employer = double(account_number: "1234567")
+      expect(csv_maker.select_account_number).to eq("1234567")
     end
   end
 

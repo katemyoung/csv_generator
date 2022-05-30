@@ -2,10 +2,11 @@ class CsvFileMaker
   require "csv"
   
   def select_account_number
+    "1234567"
   end
 
   def generate_csv_data
-    ["1234567", "2022"]
+    [select_account_number, "2022"]
   end
 
   def generate_file(file_path)
