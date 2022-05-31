@@ -5,7 +5,7 @@ describe CsvFileMaker do
   let(:account_number) { "123456"}
   let(:name) { "My Company" }
   let(:csv_maker) { CsvFileMaker.new(name)}
-  let(:csv_data) { csv_maker.generate_csv_data }
+  let(:year) { "2022" }
 
   describe "a new CsvFileMaker" do
     it "is associated with an employer account " do
@@ -24,7 +24,7 @@ describe CsvFileMaker do
   end
 
   describe "#generate_csv_data" do
-    let(:year) { "2022" }
+  let(:csv_data) { csv_maker.generate_csv_data }
 
     it "returns an array" do
       allow(csv_maker).to receive(:employer_account_number).and_return(account_number)
@@ -46,11 +46,13 @@ describe CsvFileMaker do
   describe "#generate_file" do
     let(:file_path) { "./tmp/test.csv"}
     let(:file) { csv_maker.generate_file(file_path) }
+    let(:csv_data) { [account_number, year] }
+    let(:generate_csv_data) { csv_data  }
 
     after(:context) { File.delete("./tmp/test.csv") }
     
     it "outputs a csv file" do
-      employer = Employer.create(account_number: account_number, name: name)
+      allow(csv_maker).to receive(:generate_csv_data).and_return(csv_data)
       expect(file).to be_a(CSV)
     end
 
@@ -59,7 +61,7 @@ describe CsvFileMaker do
     end
  
     it "outputs a csv data contains the employer's account number" do
-      employer = Employer.create(account_number: account_number, name: name)
+      allow(csv_maker).to receive(:generate_csv_data).and_return(csv_data)
       expect(CSV.read("#{file_path}")).to include(csv_data) 
     end
   end
