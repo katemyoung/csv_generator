@@ -13,17 +13,12 @@ describe CsvFileMaker do
       allow(employer).to receive(:name).and_return(name)
       expect(csv_maker.employer_name).to eq(employer.name)
     end
-
-    it "finds the associated employee acount number" do
-      allow(Employer).to receive(:find_by).and_return(Employer.new(account_number: account_number))
-      employer = Employer.find_by
-      expect(csv_maker.employer_account_number).to eq(employer.account_number.to_s)
-    end
   end
 
   describe "#employer_account_number" do
-    it "returns the employer's account number" do
-      employer = Employer.create(account_number: account_number, name: name)
+    it "finds the associated employee acount number" do
+      allow(Employer).to receive(:find_by).and_return(Employer.new(account_number: account_number))
+      employer = Employer.find_by
       expect(csv_maker.employer_account_number).to eq(employer.account_number.to_s)
     end
   end
@@ -32,17 +27,17 @@ describe CsvFileMaker do
     let(:year) { "2022" }
 
     it "returns an array" do
-      employer = Employer.create(account_number: account_number, name: name)
+      allow(csv_maker).to receive(:employer_account_number).and_return(account_number)
       expect(csv_data).to be_an(Array)
     end
 
     it "contains the employer's account number" do
-      employer = Employer.create(account_number: account_number, name: name)
-      expect(csv_data).to include(employer.account_number.to_s) 
+      allow(csv_maker).to receive(:employer_account_number).and_return(account_number)
+      expect(csv_data).to include(account_number.to_s) 
     end
 
     it "contains the year" do
-      employer = Employer.create(account_number: account_number, name: name)
+      allow(csv_maker).to receive(:employer_account_number).and_return(account_number)
       expect(csv_data).to include(year) 
     end
 
