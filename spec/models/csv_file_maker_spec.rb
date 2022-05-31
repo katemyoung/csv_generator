@@ -4,15 +4,13 @@ require "csv"
 describe CsvFileMaker do
   let(:account_number) { "123456"}
   let(:name) { "My Company" }
-  let(:employer) { Employer.create(account_number: account_number, name: name) }
   let(:csv_maker) { CsvFileMaker.new(name)}
-  let(:file_path) { "./tmp/test.csv"}
-  let(:file) { csv_maker.generate_file(file_path) }
   let(:csv_data) { csv_maker.generate_csv_data }
 
   describe "a new CsvFileMaker" do
-    it "is assocaited with an employer account " do
-      employer = Employer.create(account_number: account_number, name: name)
+    it "is associated with an employer account " do
+      employer = Employer.new(name: name)
+      allow(employer).to receive(:name).and_return(name)
       expect(csv_maker.employer_name).to eq(employer.name)
     end
 
@@ -30,7 +28,6 @@ describe CsvFileMaker do
   end
 
   describe "#generate_csv_data" do
-    
     let(:year) { "2022" }
 
     it "returns an array" do
@@ -51,6 +48,9 @@ describe CsvFileMaker do
   end
 
   describe "#generate_file" do
+    let(:file_path) { "./tmp/test.csv"}
+    let(:file) { csv_maker.generate_file(file_path) }
+
     after(:context) { File.delete("./tmp/test.csv") }
     
     it "outputs a csv file" do
