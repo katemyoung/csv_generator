@@ -14,8 +14,9 @@ describe CsvFileMaker do
       expect(csv_maker.employer_name).to eq(employer.name)
     end
 
-    it "finds the accociated employee acount number" do
-      employer = Employer.create(account_number: account_number, name: name)
+    it "finds the associated employee acount number" do
+      allow(Employer).to receive(:find_by).and_return(Employer.new(account_number: account_number))
+      employer = Employer.find_by
       expect(csv_maker.employer_account_number).to eq(employer.account_number.to_s)
     end
   end

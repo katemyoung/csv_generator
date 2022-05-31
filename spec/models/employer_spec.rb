@@ -14,4 +14,11 @@ describe Employer do
       expect(employer).to respond_to(:name) 
     end
   end
+
+  describe ".find_by" do
+    it "returns an account number as a string given an employer name" do
+      employer_record = Employer.find_by(name: employer.name)
+      expect(employer_record.account_number.to_s).to eq(employer.account_number.to_s)
+    end
+  end
 end
