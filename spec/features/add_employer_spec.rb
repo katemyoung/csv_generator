@@ -9,4 +9,11 @@ RSpec.describe "adding an employer" do
     expect(page).to have_content("My Company")
     expect(page).to have_content(1234567)
   end
+
+  it "does not allow a user to create an employer without an eNapsa account number" do
+    visit new_employer_path
+    fill_in "Name", with: "My Company"
+    click_on "Create Employer"
+    expect(page).not_to have_content("My Company")
+  end
 end
