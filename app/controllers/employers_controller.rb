@@ -9,6 +9,11 @@ class EmployersController < ApplicationController
 
   def create
     employer = Employer.create(name: params[:employer][:name], account_number: params[:employer][:account_number])
-    redirect_to employers_path
+    if employer.valid?
+      redirect_to employers_path
+    else 
+      @employer = Employer.new
+      render :new
+    end
   end
 end
