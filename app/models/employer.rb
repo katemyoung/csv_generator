@@ -1,3 +1,3 @@
 class Employer < ApplicationRecord
-  validates :account_number, presence: true
+  validates :account_number, length: { is: 7 }
 end
