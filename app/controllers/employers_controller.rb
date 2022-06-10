@@ -8,12 +8,11 @@ class EmployersController < ApplicationController
   end 
 
   def create
-    employer = Employer.create(name: params[:employer][:name], account_number: params[:employer][:account_number])
-    if employer.valid?
+    @employer = Employer.new(name: params[:employer][:name], account_number: params[:employer][:account_number])
+    if @employer.save
       redirect_to employers_path
     else 
-      @employer = Employer.new
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 end

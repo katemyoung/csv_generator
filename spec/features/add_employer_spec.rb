@@ -25,5 +25,12 @@ RSpec.describe "adding an employer" do
       click_on "Create Employer"
       expect(page).to have_content("New Employer")
     end
+
+    it "dispalys an error message if an invalid or no eNapsa account number is supplied" do
+      visit new_employer_path
+      fill_in "Name", with: "My Company"
+      click_on "Create Employer"
+      expect(page).to have_content("Account number is the wrong length (should be 7 characters)")
+    end
   end
 end
