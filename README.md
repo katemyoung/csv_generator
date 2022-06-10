@@ -15,7 +15,7 @@ So far, it creates a csv file with the employer name generated dynamically, and 
 
 ```
 3.0.0 :001 > Employer.create(name: "Small Shop", account_number: 123123)
-3.0.0 :002 > june_returns = CsvFileMaker.new("Small Shop")
+3.0.0 :002 > june_returns = ENapsaMonthlyReport.new("Small Shop")
 3.0.0 :003 > june_returns.generate_file("./june_returns.csv")
 ```
 

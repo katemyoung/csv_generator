@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe CsvFileMaker do
+describe ENapsaMonthlyReport do
   describe "#generate_file" do
     it "writes the data to a csv file" do
       employer = create(:employer, account_number: 1111111)
@@ -8,7 +8,7 @@ describe CsvFileMaker do
       csv_file = instance_double(CSV)
       allow(CSV).to receive(:open).with(file_path, "w").and_yield(csv_file)
       allow(csv_file).to receive(:add_row)
-      csv_file_maker = CsvFileMaker.new(employer.name)
+      csv_file_maker = ENapsaMonthlyReport.new(employer.name)
 
       csv_file_maker.generate_file(file_path)
 

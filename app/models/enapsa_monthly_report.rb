@@ -1,4 +1,4 @@
-class CsvFileMaker
+class ENapsaMonthlyReport
   require "csv"
   attr_accessor :employer_name
 
