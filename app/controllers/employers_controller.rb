@@ -5,13 +5,13 @@ class EmployersController < ApplicationController
 
   def index
     @employers = Employer.all
-  end 
+  end
 
   def create
     @employer = Employer.new(name: params[:employer][:name], account_number: params[:employer][:account_number])
     if @employer.save
       redirect_to employers_path
-    else 
+    else
       render :new, status: :unprocessable_entity
     end
   end

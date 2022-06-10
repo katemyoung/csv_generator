@@ -7,7 +7,7 @@ class CsvFileMaker
   end
 
   def generate_file(file_path)
-    CSV.open("#{file_path}", "w") do |csv|
+    CSV.open(file_path.to_s, "w") do |csv|
       csv.add_row(generate_csv_data)
     end
   end
