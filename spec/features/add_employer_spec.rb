@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "adding an employer" do
   context "valid inputs" do
-  it "allows a user to create an employer with name and eNapsa account number" do
+    it "allows a user to create an employer with name and eNapsa account number" do
       visit new_employer_path
       fill_in "Name", with: "My Company"
       fill_in "Account number", with: 1234567

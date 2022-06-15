@@ -1,0 +1,10 @@
+<%= form_with url: "/enapsa_monthly_report/download", method: :post do |form| %>
+  <%= form.label(:employer) %>
+  <%= form.text_field(:employer) %>
+  <br />
+  <%= "Report for the #{Time.now.mon - 1}th month of #{Time.now.year}" %>
+  <%= form.hidden_field(:date_month, value: (Time.now.mon - 1)) %>
+  <br />
+  <%= form.submit value="Generate report" %>
+
+<% end %>
