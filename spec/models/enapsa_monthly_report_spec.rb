@@ -10,7 +10,7 @@ describe EnapsaMonthlyReport do
       csv_file = instance_double(CSV)
       allow(CSV).to receive(:open).with(file_path, "w").and_yield(csv_file)
       allow(csv_file).to receive(:add_row)
-      csv_file_maker = EnapsaMonthlyReport.new(employer.name, year, month)
+      csv_file_maker = EnapsaMonthlyReport.new(employer, year, month)
 
       csv_file_maker.generate_file
 

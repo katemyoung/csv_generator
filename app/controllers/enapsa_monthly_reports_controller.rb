@@ -3,10 +3,10 @@ class EnapsaMonthlyReportsController < ApplicationController
   end
 
   def create
-    @@employer_name = params[:employer] # refactor this in future
+    @@employer = Employer.find_by(name: params[:employer]) # finds the employer object
     @year = params[:date][:year]
     @month = params[:date][:month]
-    report = EnapsaMonthlyReport.new(@@employer_name, @year, @month) # also need to pass in the month
+    report = EnapsaMonthlyReport.new(@@employer, @year, @month) # also need to pass in the month
     report.generate_file
     redirect_to enapsa_monthly_report_show_path
   end
@@ -15,7 +15,7 @@ class EnapsaMonthlyReportsController < ApplicationController
   end
 
   def download_csv
-    send_file("#{Rails.root}/public/enapsa_reports/#{@@employer_name}.csv",
-      filename: "#{@@employer_name}.csv")
+    send_file("#{Rails.root}/public/enapsa_reports/#{@@employer.name}.csv",
+      filename: "#{@@employer.name}.csv")
   end
 end

@@ -1,9 +1,9 @@
 class EnapsaMonthlyReport
   require "csv"
-  attr_accessor :employer_name
+  attr_accessor :employer
 
-  def initialize(employer_name, year, month)
-    @employer_name = employer_name
+  def initialize(employer, year, month) 
+    @employer = employer # dependency injection - pass in the whole object
     @month = month
     @year = year
   end
@@ -19,7 +19,7 @@ class EnapsaMonthlyReport
   attr_accessor :month, :year
 
   def employer_account_number
-    Employer.find_by(name: @employer_name).account_number.to_s
+    employer.account_number.to_s
   end
 
   def generate_csv_data
@@ -27,6 +27,6 @@ class EnapsaMonthlyReport
   end
 
   def file_path
-    "#{Rails.root}/public/enapsa_reports/#{@employer_name}.csv"
+    "#{Rails.root}/public/enapsa_reports/#{employer.name}.csv"
   end
 end
