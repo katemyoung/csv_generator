@@ -16,6 +16,6 @@ class EnapsaMonthlyReportsController < ApplicationController
 
   def download_csv
     send_file("#{Rails.root}/public/enapsa_reports/#{@@employer_name}.csv",
-               filename: "#{@@employer_name}.csv")
+      filename: "#{@@employer_name}.csv")
   end
 end

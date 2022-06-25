@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post "/enapsa_monthly_report/create", to: "enapsa_monthly_reports#create"
   get "/enapsa_monthly_report/show", to: "enapsa_monthly_reports#show"
   resources :employers
-  get "/enapsa_monthly_report/download_csv", to: "enapsa_monthly_reports#download_csv" # needs refactoring 
+  get "/enapsa_monthly_report/download_csv", to: "enapsa_monthly_reports#download_csv" #  needs refactoring
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

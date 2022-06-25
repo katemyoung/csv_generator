@@ -75,3 +75,6 @@ Here's some sample data you could use to create an Employer and generate a csv f
 3.0.0 :002 > june_returns = EnapsaMonthlyReport.new("Small Shop")
 3.0.0 :003 > june_returns.generate_file
 ```
+### To run the linter (Standard)
+
+To lint the file, run `bundle exec standardrb`
