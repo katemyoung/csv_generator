@@ -6,10 +6,11 @@ describe EnapsaMonthlyReport do
       employer = create(:employer, account_number: 1111111)
       file_path = "#{Rails.root}/public/enapsa_reports/#{employer.name}.csv"
       month = "06"
+      year = 2022
       csv_file = instance_double(CSV)
       allow(CSV).to receive(:open).with(file_path, "w").and_yield(csv_file)
       allow(csv_file).to receive(:add_row)
-      csv_file_maker = EnapsaMonthlyReport.new(employer.name, month)
+      csv_file_maker = EnapsaMonthlyReport.new(employer.name, year, month)
 
       csv_file_maker.generate_file
 

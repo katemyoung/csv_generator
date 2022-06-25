@@ -4,7 +4,9 @@ class EnapsaMonthlyReportsController < ApplicationController
 
   def create
     @@employer_name = params[:employer] # refactor this in future
-    report = EnapsaMonthlyReport.new(@@employer_name) # also need to pass in the month
+    @year = params[:date][:year]
+    @month = params[:date][:month]
+    report = EnapsaMonthlyReport.new(@@employer_name, @year, @month) # also need to pass in the month
     report.generate_file
     redirect_to enapsa_monthly_report_show_path
   end

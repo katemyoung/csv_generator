@@ -2,9 +2,10 @@ class EnapsaMonthlyReport
   require "csv"
   attr_accessor :employer_name
 
-  def initialize(employer_name, month=(Time.now.mon - 1))
+  def initialize(employer_name, year, month)
     @employer_name = employer_name
     @month = month
+    @year = year
   end
 
   def generate_file
@@ -15,7 +16,7 @@ class EnapsaMonthlyReport
 
   private
 
-  attr_accessor :month
+  attr_accessor :month, :year
 
   def employer_account_number
     Employer.find_by(name: @employer_name).account_number.to_s
