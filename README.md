@@ -9,17 +9,15 @@ So far, it creates a csv file with the employer name generated dynamically, and 
 1. Clone this  to your local machine using 
 `git clone https://github.com/katemyoung/csv_generator.git`
 
-2. From the csv_generator directory, run `rails c` to open the Rails console.
+2. From the csv_generator directory, run `rails s` to launch the Rails server.
 
-3. Run the following commands, or use your own data, to create an Employer and generate a csv file.
+3. Open the app in your browser using this address http://127.0.0.1:3000
 
-```
-3.0.0 :001 > Employer.create(name: "Small Shop", account_number: 123123)
-3.0.0 :002 > june_returns = ENapsaMonthlyReport.new("Small Shop")
-3.0.0 :003 > june_returns.generate_file("./june_returns.csv")
-```
+4. To create a new employer navigate to http://127.0.0.1:3000/employer/new
 
-4. A csv file should have been generated in your app directory (or wherever you specified in the filepath). This is what the csv file contains using the above data: 123123,2022
+5. To generate a CSV file navigate to http://127.0.0.1:3000 and enter the employer name.
+
+4. A csv file should have been downloaded by your browser.
 
 
 ## Specification:
@@ -65,3 +63,15 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## To explore the function in the Rails console
+
+From the csv_generator directory, run `rails c` to open the Rails console.
+
+Here's some sample data you could use to create an Employer and generate a csv file.
+
+```
+3.0.0 :001 > Employer.create(name: "Small Shop", account_number: 123123)
+3.0.0 :002 > june_returns = EnapsaMonthlyReport.new("Small Shop")
+3.0.0 :003 > june_returns.generate_file
+```

@@ -1,4 +1,4 @@
-<%= form_with url: "/enapsa_monthly_report/download", method: :post do |form| %>
+<%= form_with url: enapsa_monthly_report_create_url, method: :post do |form| %>
   <%= form.label(:employer) %>
   <%= form.text_field(:employer) %>
   <br />
