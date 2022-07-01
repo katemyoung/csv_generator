@@ -1,6 +1,6 @@
 class EnapsaMonthlyReport
   require "csv"
-  attr_accessor :employer
+  attr_accessor :employer, :month, :year
 
   ENAPSA_REPORTS_PATH = Rails.root.join("tmp/enapsa_reports").freeze
 
@@ -17,8 +17,6 @@ class EnapsaMonthlyReport
   end
 
   private
-
-  attr_accessor :month, :year
 
   def employer_account_number
     employer.account_number.to_s
