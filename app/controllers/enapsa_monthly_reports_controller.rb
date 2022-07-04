@@ -6,9 +6,8 @@ class EnapsaMonthlyReportsController < ApplicationController
     @@employer = Employer.find_by(name: params[:employer]) # finds the employer object
     @year = params[:date][:year]
     @month = params[:date][:month]
-    @report = EnapsaMonthlyReport.new(@@employer, @year, @month) # also need to pass in the month
-    @report.generate_file
-    EnapsaMonthlyReportMailer.report_generated_email(@report).deliver_now
+    report = EnapsaMonthlyReport.new(@@employer, @year, @month) # also need to pass in the month
+    report.generate_file
     redirect_to enapsa_monthly_report_show_path
   end
 

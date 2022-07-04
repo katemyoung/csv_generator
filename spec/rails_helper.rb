@@ -65,4 +65,3 @@ RSpec.configure do |config|
   # Use factory_bot creation methods without the FactoryBot prefix
   config.include FactoryBot::Syntax::Methods
 end
-Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |file| require file }
