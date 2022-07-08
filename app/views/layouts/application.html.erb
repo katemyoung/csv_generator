@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <nav class=nav-bar>
+      <ul>
+        <li><button class=menu-item><%= link_to "eNapsa App", root_path %></button></li>
+        <li><button class=menu-item><%= link_to "Employers", employers_path %></button></li>
+        <li><button class=menu-item><%= link_to "Monthly Reports", enapsa_monthly_report_new_path %></button></li>
+      </ul> 
+    </div>
     <%= yield %>
   </body>
 </html>
