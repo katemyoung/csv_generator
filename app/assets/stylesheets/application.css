@@ -13,3 +13,123 @@
  *= require_tree .
  *= require_self
  */
+
+ /* Colors:
+grape: #94618e
+eggplant: #492741
+sand: #f4decb
+shell: #f8eee7 */
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Page content styling */
+
+.container {
+  background-color: #f8eee7;
+  text-align: center;
+  width: 100%;
+}
+ 
+ .page-title {
+  color: #492741
+ }
+
+.page-content {
+  display: flex;
+  justify-content: center;
+}
+
+ /* Main nav bar styling */
+
+.nav-bar {
+  background-color: #94618e;
+  position: fixed;
+  width: 100%;
+}
+
+.nav-bar ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px, 50px;
+  overflow: hidden;
+}
+
+.nav-bar ul li {
+  justify-content: center;
+  align-content: center;
+  display: inline;
+  float: left;
+  padding: 20px;
+}
+
+.menu-item {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: medium;
+  width: 150px;
+}
+
+a {
+  text-decoration: none;
+  color: #492741;
+}
+
+a:hover {
+  color: #f4decb;
+}
+
+/* Page header styling */
+
+.page-header {
+  padding: 20px;
+}
+
+/* Table styling */
+
+.employers-table {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.employers-table thead {
+  justify-content: center;
+  text-align: center;
+}
+
+/* Form styling*/
+
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  max-width: 320px;
+  justify-content:space-around;
+}
+
+form input {
+  padding: 5px;
+  margin: 2px;
+}
+
+form select {
+  padding: 5px;
+  margin: 2px;
+}
+
+form label {
+  padding: 5px;
+  margin: 2px;
+}
