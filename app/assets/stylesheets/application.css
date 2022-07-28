@@ -38,7 +38,7 @@ body {
   width: 100%;
 }
  
- .page-title {
+.page-title {
   color: #492741
  }
 
@@ -132,4 +132,13 @@ form select {
 form label {
   padding: 5px;
   margin: 2px;
+}
+
+.link-button {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  background-color: #f8eee7;
 }
