@@ -1,0 +1,40 @@
+<%= form_with(model: [@employer, employee], local: true) do |f| %>
+  <%= f.label(:ssn) %>
+  <%= f.number_field(:ssn) %>
+  <% employee.errors.full_messages_for(:ssn).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+  <br />
+  <%= f.label(:nrc) %>
+  <%= f.text_field(:nrc) %>
+  <% employee.errors.full_messages_for(:nrc).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+  <br />
+  <%= f.label(:surname) %>
+  <%= f.text_field(:surname) %>
+  <% employee.errors.full_messages_for(:surname).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+  <br />
+  <%= f.label(:first_name) %>
+  <%= f.text_field(:first_name) %>
+  <% employee.errors.full_messages_for(:first_name).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+  <br />
+  <%= f.label(:other_name) %>
+  <%= f.text_field(:other_name) %>
+  <% employee.errors.full_messages_for(:other_name).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+  <br />
+  <%= f.label(:dob) %>
+  <%= f.date_field(:dob) %>
+  <% employee.errors.full_messages_for(:dob).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+  <br />
+  <%= f.submit %>
+  <% end %>
+  <br />

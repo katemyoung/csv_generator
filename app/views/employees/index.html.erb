@@ -1,0 +1,25 @@
+<div class=container>
+  <header class=page-header>
+    <h1 class=page-title>Employees</h1>
+  </header>
+  <section class=page-content>
+    <table class=employers-table>
+        <thead>
+        <tr>
+            <td><h3>Employee Name</h3</td>
+            <td><h3>Social Security Number</h3></td>
+        </tr>
+        </thead>
+        <tbody>
+        <% @employees.each do |employee| %>
+            <tr>
+            <td><%= employee.first_name + " " + employee.surname %></td>
+            <td><%= employee.ssn %></td>
+            <tr>
+        <% end %>
+        </tbody>
+    </table>
+  </section>  
+  <br>
+  <%= link_to "Generate an eNapsa monthly report", enapsa_monthly_report_new_path %>
+</div>

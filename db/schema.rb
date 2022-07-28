@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_28_200335) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_28_202850) do
   create_table "employees", force: :cascade do |t|
     t.integer "ssn"
     t.string "nrc"
@@ -20,6 +20,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_28_200335) do
     t.date "dob"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "employer_id", null: false
+    t.index ["employer_id"], name: "index_employees_on_employer_id"
   end
 
   create_table "employers", force: :cascade do |t|
@@ -29,4 +31,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_28_200335) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "employees", "employers"
 end

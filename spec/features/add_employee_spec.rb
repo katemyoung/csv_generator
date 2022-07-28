@@ -6,27 +6,29 @@ RSpec.describe "adding an employee" do
       employer = create(:employer)
       
       visit new_employer_employee_path(employer)
-      fill_in "SSN", with: 123-45-6789
-      fill_in "NRC", with: "123456/78/9"
+      fill_in "Ssn", with: 123456789
+      fill_in "Nrc", with: "123456/78/9"
       fill_in "Surname", with: "Banda"
-      fill_in "First Name", with: "Mary"
-      fill_in "Other Name", with: "Chungu"
-      fill_in "Date of Birth", with: "23/03/1980"
+      fill_in "First name", with: "Mary"
+      fill_in "Other name", with: "Chungu"
+      fill_in "Dob", with: "23/03/1980"
       click_on "Create Employee"
       
       expect(page).to have_content("Mary Banda")
-      expect(page).to have_content(123-45-6789)
+      expect(page).to have_content(123456789)
     end
   end
 
   context "with invalid input" do
-    xit "does not allow a user to create an employee without a Social Security Number" do
-      visit new_employer_path
-      fill_in "NRC", with: "123456/78/9"
+    it "does not allow a user to create an employee without a Social Security Number" do
+      employer = create(:employer)
+      
+      visit new_employer_employee_path(employer)
+      fill_in "Nrc", with: "123456/78/9"
       fill_in "Surname", with: "Banda"
-      fill_in "First Name", with: "Mary"
-      fill_in "Other Name", with: "Chungu"
-      fill_in "Date of Birth", with: "23/03/1980"
+      fill_in "First name", with: "Mary"
+      fill_in "Other name", with: "Chungu"
+      fill_in "Dob", with: "23/03/1980"
       click_on "Create Employee"
 
       expect(page).not_to have_content("Mary Banda")
