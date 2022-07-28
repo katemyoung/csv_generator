@@ -1,0 +1,12 @@
+<%= form_with url: enapsa_monthly_report_create_url, method: :post do |form| %>
+  <%= form.label(:employer) %>
+  <%= form.text_field(:employer) %>
+  <br />
+  <%= "Report for" %>
+  <%= select_month Time.now.month %> 
+  <%= select_year Time.now.year %>
+  
+  <br />
+  <%= form.submit value="Generate report" %>
+
+<% end %>

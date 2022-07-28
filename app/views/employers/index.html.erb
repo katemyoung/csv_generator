@@ -1,0 +1,19 @@
+<h1>Employers</h1>
+<table>
+  <thead>
+    <tr>
+      <td><h3>Employer Name</h3</td>
+      <td><h3>eNapsa Account Number</h3></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @employers.each do |employer| %>
+      <tr>
+        <td><%= employer.name %></td>
+        <td><%= employer.account_number %></td>
+      <tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to "Generate an eNapsa monthly report", enapsa_monthly_report_new_path %>
