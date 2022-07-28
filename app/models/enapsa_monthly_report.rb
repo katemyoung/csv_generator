@@ -2,6 +2,8 @@ class EnapsaMonthlyReport
   require "csv"
   attr_accessor :employer
 
+  ENAPSA_REPORTS_PATH = Rails.root.join("tmp/enapsa_reports").freeze
+
   def initialize(employer, year, month) 
     @employer = employer # dependency injection - pass in the whole object
     @month = month
@@ -27,6 +29,6 @@ class EnapsaMonthlyReport
   end
 
   def file_path
-    "#{Rails.root}/public/enapsa_reports/#{employer.name}.csv"
+    ENAPSA_REPORTS_PATH.join(employer.name, ".csv")
   end
 end

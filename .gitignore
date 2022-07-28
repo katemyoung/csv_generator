@@ -38,3 +38,6 @@
 
 # Ignore SimpleCov code coverage
 coverage
+
+# Ignore VSCode configuration files
+.vscode
