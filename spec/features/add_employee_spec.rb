@@ -13,6 +13,7 @@ RSpec.describe "adding an employee" do
       fill_in "Other Name", with: "Chungu"
       fill_in "Date of Birth", with: "23/03/1980"
       click_on "Create Employee"
+      
       expect(page).to have_content("Mary Banda")
       expect(page).to have_content(123-45-6789)
     end

@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_30_183715) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_28_200335) do
+  create_table "employees", force: :cascade do |t|
+    t.integer "ssn"
+    t.string "nrc"
+    t.string "surname"
+    t.string "first_name"
+    t.string "other_name"
+    t.date "dob"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "employers", force: :cascade do |t|
     t.integer "account_number"
     t.string "name"
