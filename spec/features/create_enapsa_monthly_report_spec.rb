@@ -13,6 +13,6 @@ RSpec.describe "creating an eNapsa monthly report" do
     click_on "Download eNapsa Report"
     csv = CSV.parse(page.body).transpose
 
-    expect(csv).to eq([["1111111"], [year], [month], ["123456789"], ["123456/78/9"], ["Banda"], ["Mary"], ["Chungu"], ["23/05/1980"]])
+    expect(csv).to eq([["1111111"], [year], [month], ["123456789"], ["123456/78/9"], ["Banda"], ["Mary"], ["Chungu"], ["23/05/1980"], ["2500.0"], ["125.0"], ["125.0"]])
   end
 end

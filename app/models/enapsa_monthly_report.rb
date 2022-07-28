@@ -2,8 +2,6 @@ class EnapsaMonthlyReport
   require "csv"
   attr_accessor :employer, :employee
 
-  ENAPSA_REPORTS_PATH = Rails.root.join("tmp/enapsa_reports").freeze
-
   def initialize(employer, year, month, employee) 
     @employer = employer # dependency injection - pass in the whole object
     @year = year
@@ -12,7 +10,6 @@ class EnapsaMonthlyReport
   end
 
   def generate_file
-    p "This is generate_csv_data #{generate_csv_data}"
     CSV.open(file_path, "w") do |csv|
       csv.add_row(generate_csv_data)
     end
@@ -50,12 +47,23 @@ class EnapsaMonthlyReport
     employee.dob.strftime("%d/%m/%Y")
   end
   
+  def gross_pay
+    2500.00
+  end
+
+  def employer_share
+    gross_pay * 0.05
+  end
+
+  def employee_share
+    gross_pay * 0.05
+  end
+
   def generate_csv_data
-    p "This is ssn #{ssn}"
-    [employer_account_number, year.to_s, month.to_s, ssn, nrc, surname, first_name, other_name, dob] # gross_pay, employer_share, employee_share]
+    [employer_account_number, year.to_s, month.to_s, ssn, nrc, surname, first_name, other_name, dob, gross_pay, employer_share, employee_share]
   end
 
   def file_path
-    ENAPSA_REPORTS_PATH.join("#{employer.name}.csv")
+    Rails.root.join("tmp/enapsa_reports/#{employer.name}.csv")
   end
 end
