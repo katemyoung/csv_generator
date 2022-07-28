@@ -1,10 +1,13 @@
 require "rails_helper"
 
 describe EnapsaMonthlyReport do
+
+  ENAPSA_REPORTS_PATH = Rails.root.join("tmp/enapsa_reports").freeze
+
   describe "#generate_file" do
     it "writes the data to a csv file" do
       employer = create(:employer, account_number: 1111111)
-      file_path = "#{Rails.root}/public/enapsa_reports/#{employer.name}.csv"
+      file_path = ENAPSA_REPORTS_PATH.join("#{employer.name}.csv")
       month = "06"
       year = 2022
       csv_file = instance_double(CSV)

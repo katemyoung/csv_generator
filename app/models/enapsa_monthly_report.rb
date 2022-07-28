@@ -29,6 +29,6 @@ class EnapsaMonthlyReport
   end
 
   def file_path
-    ENAPSA_REPORTS_PATH.join(employer.name, ".csv")
+    ENAPSA_REPORTS_PATH.join("#{employer.name}.csv")
   end
 end
