@@ -9,7 +9,7 @@ describe "enapsa monthly report requests" do
   xit "sends an email when a enapsa report is generated" do
     employer = create(:employer)
     report = build(:enapsa_monthly_report)
-    allow(report).to receive(:file_path).and_return("#{Rails.root}/public/enapsa_reports/#{employer[:name]}.csv")
+    allow(report).to receive(:file_path).and_return("#{Rails.root}/tmp/enapsa_reports/#{employer[:name]}.csv")
     allow(report).to receive(:employer_account_number).and_return(employer[:account_number].to_s)
     report.generate_file
     email = ActionMailer::Base.deliveries.first
